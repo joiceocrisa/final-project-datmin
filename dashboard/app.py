@@ -31,11 +31,11 @@ with ui.sidebar(title="Filter controls"):
 
 with ui.layout_column_wrap(fill=False):
     with ui.value_box(showcase=icon_svg("chart-pie")):
-        "Jumlah Kasus Diabetes"
+        "Presentase Penderita Diabetes"
 
         @render.text
         def count_diabetes():
-            return filtered_df()["diabetes"].sum()
+            return f"{filtered_df()['diabetes'].mean() * 100:.1f}%"
 
     with ui.value_box(showcase=icon_svg("ruler-horizontal")):
         "Rata-rata Umur Penderita Diabetes"
