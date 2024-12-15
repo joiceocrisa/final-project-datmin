@@ -2,3 +2,35 @@
   --bslib-sidebar-main-bg: #f8f8f8;
   --bslib-mb-spacer: 0.5rem;
 }
+
+.about-project {
+  /* Rata-kiri kanan */
+  text-align: justify;
+}
+
+.navbar-brand{
+  /* Italic */
+  font-weight: bold;
+  font-style: italic;
+}
+
+about-me {
+  /* Rata-kiri */
+  /* Overide bslib-mb-spacer */
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.card-header {
+  /* Warna background */
+  font-weight: 600;
+}
+
+.sidebar-title {
+  font-weight: 600; 
+}
+
+.control-label {
+  /* Warna text */
+  font-weight: 600; 
+}

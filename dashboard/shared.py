@@ -6,7 +6,7 @@ app_dir = Path(__file__).parent
 df = pd.read_csv(app_dir / "diabetes_dataset.csv")
 
 # Drop duplicates
-df = df.drop_duplicates()
+# df = df.drop_duplicates()
 
 # Drop Age Under 1
 df = df[df['age'] > 1]

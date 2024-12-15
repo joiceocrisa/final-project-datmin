@@ -7,24 +7,26 @@ from matplotlib import pyplot as plt
 
 from shiny import reactive
 from shiny.express import input, render, ui
+from shinyswatch.theme import lumen as shiny_theme
 
-ui.page_opts(title="Diabetes Dashboard", fillable=True)
+ui.page_opts(title="Diabetes Clinical", fillable=True, theme=shiny_theme)
+
 with ui.sidebar(title="Filter controls"):
-        ui.input_slider("year", "Year", min=2015, max=2022, step=1, value=(2015, 2022))
+    ui.input_slider("year", "Year", min=2015, max=2022, step=1, value=(2015, 2022))
 
-        ui.input_checkbox_group(
-            "race",
-            "Race",
-            choices=["AfricanAmerican", "Asian", "Caucasian", "Hispanic", "Other"],
-            selected=["AfricanAmerican", "Asian", "Caucasian", "Hispanic", "Other"],
-        )
+    ui.input_checkbox_group(
+        "race",
+        "Race",
+        choices=["AfricanAmerican", "Asian", "Caucasian", "Hispanic", "Other"],
+        selected=["AfricanAmerican", "Asian", "Caucasian", "Hispanic", "Other"],
+    )
 
-        ui.input_checkbox_group(
-            "gender",
-            "Gender",
-            choices=["Male", "Female", "Other"],
-            selected=["Male", "Female", "Other"],
-        )
+    ui.input_checkbox_group(
+        "gender",
+        "Gender",
+        choices=["Male", "Female", "Other"],
+        selected=["Male", "Female", "Other"],
+    )
 
 with ui.nav_panel("Dashboard"):
     with ui.layout_column_wrap(fill=False):
@@ -172,26 +174,32 @@ with ui.nav_panel("Dashboard"):
 
 with ui.nav_panel("Tentang Project"):
     with ui.layout_columns():
-        with ui.card():
+        with ui.card(class_="about-project"):
             ui.card_header("Deskripsi Project")
             ui.p("Project ini merupakan dashboard yang menampilkan data diabetes yang diambil dari Kaggle. Project ini memungkinkan pengguna untuk memfilter data berdasarkan tahun, ras, dan jenis kelamin. Project ini juga menampilkan presentase penderita diabetes, rata-rata umur penderita diabetes, rata-rata gula darah penderita diabetes, jumlah kasus diabetes per tahun, data diabetes, jumlah kasus diabetes per gender, jumlah kasus berdasarkan ras, jumlah penderita diabetes dan perokok, distribusi umur penderita diabetes, distribusi BMI penderita diabetes, dan distribusi level gula darah penderita diabetes.")
-            ui.p("Project ini dibuat oleh Joice Ocrisa (5003221066) untuk memenuhi tugas Data Mining dan Visualisasi C.")
-        with ui.card():
+        with ui.card(class_="about-project"):
             ui.card_header("Tujuan Project")
             ui.p("Tujuan Project ini adalah untuk memudahkan pengguna dalam memahami data diabetes yang diambil dari Kaggle. Project ini memungkinkan pengguna untuk melihat data diabetes dengan lebih mudah dan interaktif.")
-            ui.p("Project ini juga bertujuan untuk memenuhi tugas Data Mining dan Visualisasi C.")
 
             
 with ui.nav_panel("Tentang Saya"):
     with ui.layout_columns():
-        with ui.card():
+        with ui.card(class_="about-me"):
             ui.card_header("Profil Saya")
             ui.p("Nama              : Joice Ocrisa")
             ui.p("NRP               : 5003221066")
             ui.p("Kelas             : Data Mining dan Visualisasi C")
-            ui.p("Mata Kuliah: Studi: S-1 Statistika")
+            ui.p("Mata Kuliah: Studi: S-1 Statistika")
 
     ui.include_css(app_dir / "styles.css")
+    ui.tags.link(
+        rel="stylesheet",
+        href="https://fonts.googleapis.com/css?family=Roboto"
+    )
+
+    ui.tags.style(
+        "body { font-family: 'Roboto', sans-serif; }"
+    )
 
 
 @reactive.calc
