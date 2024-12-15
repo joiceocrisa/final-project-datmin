@@ -211,4 +211,5 @@ def filtered_df():
         df["gender"].isin(input.gender())
     ]
     return filt_df
-#  python -m shiny run .\app.py
+# python -m shiny run .\app.py
+# python -m shiny run .\dashboard\app.py
